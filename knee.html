@@ -1,0 +1,200 @@
+<!DOCTYPE HTML>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Dopetrope by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="posture is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<section id="header">
+
+				<!-- Logo -->
+				<h1><a href="index.html">Autonomous Locking Knee Brace</a></h1>
+
+				<!-- Nav -->
+				<nav id="nav">
+					<ul>
+						<li class="current"><a href="index.html">My Projects</a></li>
+						<li><a href="resume.html">My Resume</a></li>
+						<li><a class="icon brands fa-github" href="https://github.com/daviecheng" target="_blank" rel="noopener noreferrer"></a></li>
+					</ul>
+				</nav>
+			</section>
+
+			<!-- Main -->
+				<section id="main">
+					<div class="container">
+
+						<!-- Content -->
+							<article class="box post">
+								<h3>Autonomous Locking Knee Brace Overview</h3>
+								<p>
+									<br>
+									<b>
+										This is my NYIT senior design project where I collaborated
+										with 3 other team members to design an autonomous locking knee brace.
+										The objective of the locking knee brace is to prevent leg injuries
+										in elderlies by locking the leg before falling. Due to stability concerns
+										when ubruptly locking the leg, a preset flexion is locked.
+										In that way, it prevents overbending and the user can self-adjust their leg 
+										to a stable position when using their mobility aid. 
+										
+										The implementation uses the Random Forest machine learning algorithm with two push-pull solenoids to
+										establish the locking mechanism for the knee brace. The preset flexion
+										is unlocked after 5 seconds of consecutive non-fall readings. The autonomous locking knee brace
+										is dependent on the user's mobility aid to help regain their center of gravity.
+
+										The project is 
+										preliminary and ongoing for future students.
+									</b>
+								</p>
+
+								<h3>Autonomous Locking Knee Brace Pictures</h3>
+								<br>
+								<div class="row">
+									<div class="col-4 col-6-medium col-12-small">
+										<section class="box" style="text-align:center;">
+											<a class="image featured"><img src="/projects/auto-brace/profile.jpg" alt="" /></a>
+											<p>Locking Brace Side View</p>
+										</section>
+									</div>
+									<div class="col-4 col-6-medium col-12-small">
+										<section class="box" style="text-align:center;">
+											<a class="image featured"><img src="/projects/auto-brace/chest.jpg" alt="" /></a>
+											<p>Chest Sensor Placement</p>
+										</section>
+									</div>
+									<div class="col-4 col-6-medium col-12-small">
+										<section class="box" style="text-align:center;">
+											<a class="image featured"><img src="/projects/auto-brace/hip.jpg" alt="" /></a>
+											<p>Hip Sensor Placement</p>
+										</section>
+									</div>
+								</div>	
+								<br>
+
+								<h3>Autonomous Locking Knee Brace Video Demonstration</h3>
+								<br>
+								<div class="row" style="justify-content: center;">
+									<div class="col-4 col-6-medium col-12-small">
+										<section class="box"style="text-align:center;">
+											<a class="image featured">
+												<video style="height:550px" width="100%" controls>
+													<source src="/projects/auto-brace/Falling Video and Signal.mp4" type="video/mp4">
+													Your browser does not support the video tag.
+												</video>
+											</a>
+											<br>
+											Chest and Hip Sensor Graphs when Falling
+										</section>
+									</div>
+									<div class="col-4 col-6-medium col-12-small">
+										<section class="box" style="text-align:center;">
+											<a class="image featured">
+												<video style="height:550px" width="100%" controls>
+													<source src="/projects/auto-brace/Locking Demonstration.mp4" type="video/mp4">
+													Your browser does not support the video tag.
+												</video>	
+											</a>
+											Side View of Locking<br>
+											Red Line = Locked Flexion (preset) <br>
+											Green Line = Full Flexion (unlocked)
+										</section>
+									</div>
+								</div>
+
+								<section class="box" style="text-align:center;">
+									<video width=100% height=100% controls>
+										<source src="/projects/auto-brace/Solenoid Locking Demonstration.mp4" type="video/mp4">
+										Your browser does not support the video tag.
+									</video>
+									Solenoid Locking 
+								</section>
+
+								<br>
+								<h3>Fall Detection Accuracy and Confusion Matrix</h3>
+								<br>
+								<p>
+									<b>
+										The fall detection accuracy for my movements is 94.5% for a 300 ms sampling interval.
+										The 300 ms sampling interval gave the best fall detection accuracy for my movements.
+										
+										The model uses 1000 training data for each label (falling and nonfalling) and 30 decision trees for each label.
+										Each decision tree has a depth of 10.
+										
+										<br><br>
+										Below are two experimental results along with their confusion matrix.
+									</b>
+								</p>
+
+								<section class="box" style="text-align:center;">
+									<a class="image featured"><img src="/projects/auto-brace/confusion_matrix.png" alt=""/></a>
+									<p>Confusion Matrix</p>
+								</section>
+				
+
+								<br>
+								<h3>Setup</h3>
+								<br>
+								<p>
+									<b>
+										Setup and code can be found at my GitHub repository page
+										<a href="https://github.com/daviecheng/Autonomous_Locking_Knee_Brace/" target="_blank" rel="noopener noreferrer">here</a>
+									</b>
+
+								</p>
+							</article>
+					</div>
+				</section>
+
+			<!-- Footer -->
+			<section id="footer">
+				<div class="container">
+<!-- 						<div class="row" style="justify-content:center">
+						<div class="col-4 col-12-medium">
+							<section>
+								<ul class="contact">
+									<li>
+										<h3>Address</h3>
+										<p>
+											Untitled Incorporated<br />
+											1234 Somewhere Road Suite<br />
+											Nashville, TN 00000-0000
+										</p>
+									</li>
+									<li>
+										<h3>LinkedIn</h3>
+										<p><a href="#">www.linkedin.com/in/david-cheng-a5b78a202</a></p>
+									</li>
+									<li>
+										<h3>Phone</h3>
+										<p>(800) 000-0000</p>
+									</li>
+								</ul>
+							</section>
+						</div>
+					</div> -->
+				</div>
+			</section>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
