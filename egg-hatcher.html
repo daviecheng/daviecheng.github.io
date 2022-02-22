@@ -48,48 +48,6 @@
 								</b>
 							</p>
 
-							<h3>Background</h3>
-							<p>
-								<br>
-								<b>
-                                    In main series Pokemon games, breeding is essential for competitive battling.
-                                    The process of breeding competitive Pokemon is to continuosly hatch eggs
-                                    in hopes of getting the Pokemon with high IV's. These IV's impact the Pokemon's 
-                                    stat and how strong they will be. Competitive breeding is often tedious as 
-                                    you may need to swap the parent Pokemon when you get an offspring with a more
-                                    preferred IV spread. Moreover, these eggs require the player to walk a certain
-                                    number of steps in order to hatch. In Pokemon BDSP, the preferred egg hatching route
-                                    is in Solaceon Town where you can ride your bycycle in a straight path up and down.
-
-                                    This project emulates presses that go up and down this route while continuosly
-                                    pressing ZL button to continue the egg hatching animation.
-								</b>
-							</p>
-							<h3>Pictures</h3>
-							<br>
-							
-							<div class="row">
-								<div class="col-6 col-6-medium col-12-small">
-									<section class="box" style="text-align:center;">
-										<a class="image featured"><img src="" alt="" /></a>
-										<p></p>
-									</section>
-								</div>
-								<div class="col-6 col-6-medium col-12-small">
-									<section class="box" style="text-align:center;">
-										<a class="image featured"><img src="" alt="" /></a>
-										<p></p>
-									</section>
-								</div>
-								<div class="col-6 col-6-medium col-12-small">
-									<section class="box" style="text-align:center;">
-										<a class="image featured"><img src="" alt="" /></a>
-										<p></p>
-									</section>
-								</div>
-							</div>	
-							<br>
-
 							<h3>Video</h3>
 							<br>
 							<div class="row" style="justify-content: center;">
@@ -103,13 +61,106 @@
 										</a>
 									</section>
 								</div>
-								<div class="col-4 col-12-medium col-12-small">
-									<section class="box" style="text-align:center;">
-										<a class="image featured"><img src="" alt="" /></a>
-										<p></p>
-									</section>
-								</div>
 							</div>
+							<br>
+
+							<h3>Background</h3>
+							<p>
+								<br>
+								<b>
+                                    In main series Pokemon games, breeding is essential for competitive battling.
+                                    The process of breeding competitive Pokemon is to continuosly hatch eggs
+                                    in hopes of getting the Pokemon with high IV's. These IV's impact the Pokemon's 
+                                    stat and how strong they will be. Competitive breeding is often tedious as 
+                                    you may need to swap the parent Pokemon when you get an offspring with a more
+                                    preferred IV spread. Moreover, these eggs require the player to walk a certain
+                                    number of steps in order to hatch. In Pokemon BDSP, the preferred egg hatching route
+                                    is in Solaceon Town where you can ride your bicycle in a straight path up and down.
+
+                                    This project emulates presses that go up and down this route while continuosly
+                                    pressing ZL button to continue the egg hatching animation.
+									<br><br>
+									The methodology for this project is to have your party full of eggs and your lead Pokemon
+									with the Flame Body ability. Then run the program to have your eggs automatically hatch while
+									you do something else.
+								</b>
+							</p>
+
+							<h3>Implementation</h3>
+							<p>
+								<ol>
+									<b>
+									<li>
+										<h4>Joycon Test Points</h4>
+										<div class="row" style="justify-content: center;">
+											<div class="col-6 col-6-medium col-12-small">
+												<section class="box" style="text-align:center;">
+													<a class="image featured"><img src="" alt="" /></a>
+													<p></p>
+												</section>
+											</div>
+										</div>
+										<p>
+											Using the left Joycon pinout from <a href="https://github.com/dekuNukem/joyAnalog/blob/master/datasheets/header_mapping.pdf" target="_blank" rel="noopener noreferrer">dekuNukem's repository</a>,
+											I found that emulating a button press requires the COL to be bridged with other test points. In this application, I bridged
+											COL with UP/DOWN/ZL to emulate the up, down, and ZL button press. I soldered jumper wires to these test points making
+											it easy to use with the breadboard. 
+											<br><br>
+											Later on the project, I found that the Joycon's joystick was providing unwanted movement to my in-game player. 
+											The joystick corresponds to the POTX and POTY test points. I found that the voltage applied to these test 
+											points map the direction of the joystick. To register the position of the joystick as center, I applied
+											roughly 0.8V to the POTX and POTY test points.
+										</p>
+									</li>
+
+
+									<li>
+										<h4>Circuit</h4>
+										<div class="row" style="justify-content: center;">
+											<div class="col-6 col-6-medium col-12-small">
+												<section class="box" style="text-align:center;">
+													<a class="image featured"><img src="" alt="" /></a>
+													<p></p>
+												</section>
+											</div>
+										</div>
+										<p>
+											The circuit uses the GPIO of the Raspberry Pi Pico to control the output of SPDT switches. The SPDT switches
+										    bridge the COL with the UP/DOWN/ZL test points to emulate a button press. The GPIO controls which buttons to
+											press by switching between the 2 outputs of the SPDT switch. I used two SPDT switches in this project: one
+											to control COL; and the other for pressing UP/DOWN/ZL. 
+											<br><br>
+											I used a voltage divider to provide the POTX and POTY with 0.8V. Additionally, a pushbutton is added to allow the program
+											to run and stop.
+										</p>	
+										<div class="row" style="justify-content: center;">
+											<div class="col-6 col-6-medium col-12-small">
+												<section class="box" style="text-align:center;">
+													<a class="image featured"><img src="" alt="" /></a>
+													<p>Joycon connected to circuit</p>
+												</section>
+											</div>
+										</div>		
+										<div class="row" style="justify-content: center;">
+											<div class="col-6 col-6-medium col-12-small">
+												<section class="box" style="text-align:center;">
+													<a class="image featured"><img src="" alt="" /></a>
+													<p>Circuit Schematic</p>
+												</section>
+											</div>
+										</div>								
+									</li>
+									
+
+
+									</b>
+								</ol>
+
+							</p>
+
+				
+							
+
 
 							<br>
 							<h3>Setup</h3>
