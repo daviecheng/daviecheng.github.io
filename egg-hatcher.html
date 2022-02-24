@@ -42,7 +42,7 @@
 								<b>
                                     This project automates the egg hatching process in the Pokemon BDSP game by
                                     automating button presses on the Nintendo Switch Joycon. The implementation
-                                    utilizes the Raspberry Pi Pico's GPIO and SPDT switches. The SPDT switch 
+                                    utilizes SPDT switches and the Raspberry Pi Pico's GPIO. The SPDT switch 
                                     bridge points on the joycon to emulate a button switch; while the GPIO controls
                                     which buttons to turn on and off.
 								</b>
@@ -80,8 +80,8 @@
                                     This project emulates presses that go up and down this route while continuosly
                                     pressing ZL button to continue the egg hatching animation.
 									<br><br>
-									The methodology for this project is to have your party full of eggs and your lead Pokemon
-									with the Flame Body ability. Then run the program to have your eggs automatically hatch while
+									The methodology for this project is to have your party full of eggs and with the lead Pokemon
+									having the Flame Body ability. Then run the program to have your eggs automatically hatch while
 									you do something else.
 								</b>
 							</p>
@@ -107,9 +107,8 @@
 											it easy to use with the breadboard. 
 											<br><br>
 											Later on the project, I found that the Joycon's joystick was providing unwanted movement to my in-game player. 
-											The joystick corresponds to the POTX and POTY test points. I found that the voltage applied to these test 
-											points map the direction of the joystick. To register the position of the joystick as center, I applied
-											roughly 0.8V to the POTX and POTY test points.
+											The joystick corresponds to the POTX and POTY test points. To register the position of the joystick as center,
+											I applied roughly 0.8V to the POTX and POTY test points.
 										</p>
 									</li>
 
