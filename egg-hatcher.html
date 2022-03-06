@@ -49,7 +49,13 @@
 							</p>
 
 							<h3>Video</h3>
-							<br>
+							
+							<p>
+								<br>
+								<b>
+									Below is a demonstration of the automated button press circuit.
+								</b>
+							</p>
 							<div class="row" style="justify-content: center;">
 								<div class="col-8 col-12-medium col-12-small">
 									<section class="box"style="text-align:center;">
@@ -96,7 +102,7 @@
 											It is important to first pair the Joycon to the Nintendo Switch as the power for the Joycon will be from USB. 
 											Solder jumper wires to the 5V and GND pins on the Joycon connector to make it breadboard friendly. When USB 
 											power is connected to the circuit, pressing the upper pushbutton will pair the Joycon to the Nintendo Switch. You will need to
-											do this everytime you power the circuit on (see connected circuit). Leaving a separate left Joycon connected to the
+											do this everytime you power the circuit on. Leaving a separate left Joycon connected to the
 											Nintendo Switch will allow you to freely move your in-game player when the automated circuit is turned off. 
 											<br><br>
 											<h5>Note: You will be unable to use the connected left joycon if the automated circuit is turned on.</h5>
@@ -118,6 +124,7 @@
 												</section>
 											</div>
 										</div>
+										<br>
 										<p>
 											Using the left Joycon pinout from <a href="https://github.com/dekuNukem/joyAnalog/blob/master/datasheets/header_mapping.pdf" target="_blank" rel="noopener noreferrer">dekuNukem's repository</a>,
 											I found that emulating a button press requires the COL to be bridged with other test points. In this application, I bridged
@@ -150,6 +157,7 @@
 												</section>
 											</div>
 										</div>
+										<br>
 										<p>
 											The circuit uses the GPIO of the Raspberry Pi Pico to control the output of SPDT switches. The SPDT switches
 										    bridge the COL with the UP/DOWN/ZL test points to emulate a button press. The GPIO controls which buttons to
