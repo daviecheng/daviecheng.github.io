@@ -36,27 +36,26 @@
 
 						<!-- Content -->
 						<article class="box post">
-							<h3>Wearable Posture Corrector Device Overview</h3>
+							<h3>Overview</h3>
 							<p>
 								<br>
 								<b>
-									The posture corrector device is designed to be low powered that can accurately detect slouching.
-									The SEFR machine learning algorithm was selected because it is fast during prediction and requires
-									minimal memory. The device notifies the user when they are slouching by alarming a buzzer. The buzzer
-									alarms when the device detects slouching for 7 consecutive seconds. In that way, it reduces false
-									positive alarms as it is normal to ocassionally slouch when doing daily activities.
-									The device utilizes a power switch and charging module so that the device can be recharged and switched
-									on and off with leisure. The battery lifespan is optimized to 4 and 1/2 days under ideal conditions by
-									decreasing the system clock frequency of the Arduino Pro Mini and by removing unused internal LEDs from
-									the components used. Instead of using a more noiseless approach like a vibration motor, I 
-									believe a buzzer sound is more annoying and it gives more of an incentive to stop slouching.
-									Nevertheless, the piezo can be replaced with a vibration motor if it were to be worn in a professional setting
-									where you don't want others to hear the device.
-
+									The posture corrector is a low-power device designed to detect slouching.
+									It alerts the user with a buzzer if slouching is detected for at least 7
+									seconds. This interval was selected to reduce the possibility of false
+									positives where the user may occasionally slouch when doing daily activities.
+									<br><br>
+									
+									The device implements a Scalable, Efficient, and Fast classifieR (SEFR) machine learning algorithm, a
+									binary classifier that is known for its quick training and prediction, with a minimal memory footprint.
+									It also features a power switch and charging module for easy recharging and on/off control.
+									The battery lasts up to approximately 4.5 days under optimal conditions, achieved by lowering
+									the Arduino Pro Mini's clock frequency and removing unused internal LEDs from
+									the components used.
 								</b>
 							</p>
 
-							<h3>Wearable Posture Corrector Device Pictures</h3>
+							<h3>Pictures</h3>
 							<br>
 							
 							<div class="row">
@@ -112,7 +111,7 @@
 							</div>	
 							<br>
 
-							<h3>Wearable Posture Corrector Device Video Demonstration</h3>
+							<h3>Demo</h3>
 							<br>
 							<div class="row" style="justify-content: center;">
 								<div class="col-8 col-12-medium col-12-small">
@@ -135,12 +134,30 @@
 							</div>
 
 							<br>
+							<h3>Schematic</h3>
+							<br>
+							<div class="col-6 col-6-medium col-12-small">
+								<section class="box" style="text-align:center;">
+									<a class="image featured"><img src="/projects/posture-device/schematic.jpg" alt="" style="max-width: 50%; height: auto;" /></a>
+								</section>
+							</div>
+
+							<br>
+							<h3>Sequence Diagram</h3>
+							<br>
+							<div class="col-6 col-6-medium col-12-small">
+								<section class="box" style="text-align:center;">
+									<a class="image featured"><img src="/projects/posture-device/sequence_diagram.png"alt="" style="max-width: 70%; height: auto;" /></a>
+								</section>
+							</div>
+
+							<br>
 							<h3>Setup</h3>
 							<br>
 							<p>
 								<b>
 									Setup and code can be found at my GitHub repository page
-									<a href="https://github.com/daviecheng/Wearable_Posture_Corrector/" target="_blank" rel="noopener noreferrer">here</a>
+									<a href="https://github.com/daviecheng/posture_corrector" target="_blank" rel="noopener noreferrer">here</a>
 								</b>
 
 							</p>
@@ -152,30 +169,6 @@
 			<!-- Footer -->
 			<section id="footer">
 				<div class="container">
-<!-- 						<div class="row" style="justify-content:center">
-						<div class="col-4 col-12-medium">
-							<section>
-								<ul class="contact">
-									<li>
-										<h3>Address</h3>
-										<p>
-											Untitled Incorporated<br />
-											1234 Somewhere Road Suite<br />
-											Nashville, TN 00000-0000
-										</p>
-									</li>
-									<li>
-										<h3>LinkedIn</h3>
-										<p><a href="#">www.linkedin.com/in/david-cheng-a5b78a202</a></p>
-									</li>
-									<li>
-										<h3>Phone</h3>
-										<p>(800) 000-0000</p>
-									</li>
-								</ul>
-							</section>
-						</div>
-					</div> -->
 				</div>
 			</section>
 
