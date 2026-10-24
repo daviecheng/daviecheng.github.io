@@ -1,0 +1,237 @@
+<!DOCTYPE HTML>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en">
+	<head>
+		<title>My Projects | Vision-Based Game Automation using OpenCV</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="An in-progress Raspberry Pi project to automate Pokemon HGSS shiny hunting on a Nintendo DS Lite using camera capture, OpenCV, and button control." />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			.box.post { color: #252122; font-weight: 400; }
+			.hunt-example { margin: 0 0 2.5em; }
+			.hunt-example pre { background: #f5f5f5; padding: 1em; overflow-x: auto; margin: 0 0 1.5em; }
+			.hunt-example code { font-family: Consolas, monospace; font-size: 0.9em; }
+			.hunt-example figure { margin: 0 0 1.5em; }
+			.hunt-example img { display: block; width: 100%; height: auto; }
+			.hunt-example figcaption { padding-top: 0.75em; }
+			.wiring-photo { display: block; aspect-ratio: 8 / 5; overflow: hidden; background: #f5f5f5; }
+			.box.post .wiring-photo img { width: 100%; height: 100%; padding: 0; object-fit: contain; }
+			.box.post .wiring-photo.wires img { object-fit: cover; object-position: center bottom; }
+		</style>
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<section id="header">
+				<h1><a href="index.html">Vision-Based Game Automation using OpenCV</a></h1>
+				<nav id="nav">
+					<ul>
+						<li class="current"><a href="index.html">My Projects</a></li>
+						<li><a href="resume.html">My Resume</a></li>
+						<li><a class="icon brands fa-github" href="https://github.com/daviecheng" target="_blank" rel="noopener noreferrer" aria-label="David Cheng on GitHub"></a></li>
+					</ul>
+				</nav>
+			</section>
+
+			<!-- Main -->
+			<section id="main">
+				<div class="container">
+					<article class="box post">
+						<header>
+							<h2>Project Overview</h2>
+							<p><strong>Status: In progress</strong></p>
+						</header>
+						<p>
+							I'm building this project to automate shiny hunting in Pokemon HeartGold and SoulSilver
+							on a Nintendo DS Lite. The goal is to have a Raspberry Pi 4 watch the screen through a camera,
+							check the Pokemon, and press the buttons needed to repeat the encounter until a shiny appears.
+							The software is written in C++ with OpenCV for image processing.
+						</p>
+						<figure style="max-width: 520px; margin: 2em auto;">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 616" role="img" aria-labelledby="shiny-flow-title" style="display: block; width: 100%; height: auto;">
+								<title id="shiny-flow-title">Rig setup to camera capture to cropped DS screen to green HSV stencil</title>
+								<rect width="600" height="616" fill="#17212e" />
+								<g fill="#fff" font-family="Arial, sans-serif" font-size="21" font-weight="bold">
+									<text x="24" y="32">1. RIG</text>
+									<text x="336" y="64">2. CAPTURE</text>
+									<text x="336" y="400">3. CROP</text>
+									<text x="24" y="400">4. STENCIL</text>
+								</g>
+								<image href="projects/shiny-hunt/rig/005.jpeg" x="24" y="44" width="240" height="254" />
+								<image href="projects/shiny-hunt/001_raw_capture.png" x="336" y="76" width="240" height="180" />
+								<image href="projects/shiny-hunt/002_cropped.png" x="336" y="412" width="240" height="180" />
+								<image href="projects/shiny-hunt/003_stencil.png" x="24" y="412" width="240" height="180" />
+								<g fill="none" stroke="#f06b85" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M 282 166 H 318 M 305 153 L 318 166 L 305 179" />
+									<path d="M 456 282 V 362 M 443 349 L 456 362 L 469 349" />
+									<path d="M 318 502 H 282 M 295 489 L 282 502 L 295 515" />
+								</g>
+							</svg>
+						</figure>
+
+						<h3>Context</h3>
+						<p>
+							Shiny Pokemon have different colors from their normal versions. For a soft-reset hunt,
+							you save before an encounter, check the Pokemon, then reset and try again if it isn't shiny.
+							This project is meant to handle that repeated process on the actual DS hardware.
+						</p>
+						<p>
+							I chose to check the Pokemon's colors instead of looking for the brief sparkle animation.
+							The Pokemon stays on screen, which gives the program more time to check it. The intended
+							behavior is to reset only when the Pokemon is confirmed not shiny. If the result is unclear,
+							the program should stop so it doesn't reset over a shiny.
+						</p>
+
+						<h3>Current Implementation</h3>
+						<p>
+							So far, I've focused on capturing the screen and building the image processing needed to
+							read it. The full hunting process is not connected yet.
+						</p>
+						<ul>
+							<li><strong>Screen capture:</strong> Added camera input through libcamera and code to locate,
+								straighten, and crop the DS top screen for processing.</li>
+							<li><strong>Image replay:</strong> The application can run through saved camera photos, so I can
+								work on image processing without the camera connected.</li>
+							<li><strong>Battle detection work:</strong> Added health-bar detection as a step toward recognizing
+								when the game is in a battle.</li>
+							<li><strong>Ho-Oh reference data:</strong> Added normal and shiny reference sprites and an initial
+								set of color thresholds. The shiny classifier is still to be implemented and validated with real shiny captures.</li>
+							<li><strong>Tests:</strong> Added GoogleTest tests for capture and vision, with recorded images
+								from day, sunset, and night encounters.</li>
+						</ul>
+
+						<section class="hunt-example" aria-labelledby="behind-the-scenes">
+							<h3 id="behind-the-scenes">Behind the Scenes: One Frame</h3>
+							<p>
+								The screenshots below show how a single captured frame moves through the current processing pipeline, from the raw image to a cropped, stenciled output.
+							</p>
+							<div class="row">
+								<div class="col-4 col-12-medium">
+									<figure>
+										<img src="projects/shiny-hunt/001_raw_capture.png" width="1280" height="960" loading="lazy" alt="Original camera photo, including the DS Lite casing around the battle screen" />
+										<figcaption><strong>1. Camera photo.</strong> The input includes the DS casing and a slightly tilted screen.</figcaption>
+									</figure>
+								</div>
+								<div class="col-4 col-12-medium">
+									<figure>
+										<img src="projects/shiny-hunt/002_cropped.png" width="512" height="384" loading="lazy" alt="DS top screen cropped and straightened, showing Ho-Oh and Ampharos" />
+										<figcaption><strong>2. Cropped screen.</strong> The screen locator finds the four corners and straightens the image to 512 &times; 384 pixels.</figcaption>
+									</figure>
+								</div>
+								<div class="col-4 col-12-medium">
+									<figure>
+										<img src="projects/shiny-hunt/003_stencil.png" width="512" height="384" loading="lazy" alt="Full-screen green HSV stencil showing both health bars and other matching pixels in white" />
+										<figcaption><strong>3. Green stencil.</strong> White pixels match the chosen green HSV range; black pixels fall outside it. The health bars stand out, along with some other parts of the screen.</figcaption>
+									</figure>
+								</div>
+							</div>
+							<p>
+								The health-bar detector checks only the two expected health-bar regions for a horizontal run of at least 70 pixels,
+								allowing gaps of up to two pixels for camera noise. This checks for green health bars;
+								it doesn't tell us whether the Pokemon is shiny.
+							</p>
+						</section>
+
+						<section class="hunt-example" aria-labelledby="rig-setup">
+							<h3 id="rig-setup">Equipment and Rig Setup</h3>
+							<div class="row">
+								<div class="col-6 col-12-medium">
+									<figure>
+										<a href="projects/shiny-hunt/rig/005.jpeg"><img src="projects/shiny-hunt/rig/005.jpeg" width="4046" height="4283" loading="lazy" alt="DS Lite facing a camera held by a clip and stand, with the Raspberry Pi beside it" /></a>
+										<figcaption>The current setup on my desk.</figcaption>
+									</figure>
+								</div>
+								<div class="col-6 col-12-medium">
+									<p>I'm using a Nintendo DS Lite, a Raspberry Pi 4, and a Raspberry Pi Camera Module V2 aimed at the top screen. For now, a clip and stand hold the camera in place, and a box raises the DS to the right height. It's a simple setup, but it works for the capture work I'm doing.</p>
+									<p>The DS has thin wires connected to its button test points, with female connectors coming out through the stylus compartment. This gives me a place to connect the button-control circuit while keeping the original buttons usable.</p>
+									<p>I might 3D print an enclosure to hold everything together later. If this setup stays stable enough, I may just keep using it.</p>
+								</div>
+							</div>
+							<h4 id="button-connections">Bringing the button connections outside</h4>
+							<div class="row">
+								<div class="col-6 col-12-medium">
+									<figure>
+										<a class="wiring-photo wires" href="projects/shiny-hunt/rig/001.jpg"><img src="projects/shiny-hunt/rig/001.jpg" width="4032" height="3024" loading="lazy" alt="Thin wires grouped into two cables with female connectors" /></a>
+										<figcaption><strong>1. Preparing the wires.</strong> I used thin jumper wires so they could fit inside the DS shell, with female connectors on the outside ends.</figcaption>
+									</figure>
+								</div>
+								<div class="col-6 col-12-medium">
+									<figure>
+										<a class="wiring-photo" href="projects/shiny-hunt/rig/002.jpg"><img src="projects/shiny-hunt/rig/002.jpg" width="4032" height="3024" loading="lazy" alt="Wires soldered to test points on the DS circuit board and held with hot glue" /></a>
+										<figcaption><strong>2. Connecting to the board.</strong> I soldered the wires to the button test points and used hot glue to keep them from moving and pulling on the solder pads.</figcaption>
+									</figure>
+								</div>
+								<div class="col-6 col-12-medium">
+									<figure>
+										<a class="wiring-photo" href="projects/shiny-hunt/rig/003.jpg"><img src="projects/shiny-hunt/rig/003.jpg" width="4032" height="3024" loading="lazy" alt="Wires routed inside the DS shell toward the stylus compartment" /></a>
+										<figcaption><strong>3. Routing the cables.</strong> I arranged the wires inside the shell so the connectors could come out through the stylus compartment.</figcaption>
+									</figure>
+								</div>
+								<div class="col-6 col-12-medium">
+									<figure>
+										<a class="wiring-photo" href="projects/shiny-hunt/rig/004.jpeg"><img src="projects/shiny-hunt/rig/004.jpeg" width="3775" height="2830" loading="lazy" alt="Reassembled Nintendo DS Lite with button connectors exposed at the side" /></a>
+										<figcaption><strong>4. Putting the DS back together.</strong> The original shell fits back on, and all the buttons still work. The exposed connections give an external circuit access to those buttons; the automated button-control software is still planned.</figcaption>
+									</figure>
+								</div>
+							</div>
+							<h4>Checking the camera view</h4>
+							<p>Before starting a capture run, I SSH into the Raspberry Pi from my Linux computer and start a camera stream. I view it with ffplay over TCP to check the framing and camera angle. This is a separate setup step for now; I don't have a live preview while the capture application is running.</p>
+							<figure>
+								<a href="projects/shiny-hunt/rig/006.jpeg"><img src="projects/shiny-hunt/rig/006.jpeg" width="5712" height="4284" loading="lazy" alt="Desktop monitor showing the DS camera preview beside terminals, with the rig below" /></a>
+								<figcaption>The camera preview lets me check that the top screen is in view before running the application.</figcaption>
+							</figure>
+						</section>
+
+						<section aria-labelledby="current-challenges">
+							<h3 id="current-challenges">Current Challenges</h3>
+							<ul>
+								<li>The Camera Module V2 has manually adjustable focus. Since there's no live preview during a run, I check the camera preview beforehand for blur and make sure the contrast looks right, not too dark or washed out</li>
+								<li>When I add GPIO control, I want to explore the delay between capturing a frame, processing it, and pressing a button. The game may have moved on by the time an action happens</li>
+								<li>During an encounter, I want to avoid inputs like A that could trigger an attack while the next frame is still being checked</li>
+							</ul>
+						</section>
+
+						<h3>Next Steps</h3>
+						<ol>
+							<li>Finish recognizing the game screen and checking whether the Pokemon is shiny,
+								including cases where the image is unclear.</li>
+							<li>Add the hunt logic and GPIO button control for emulating DS button presses.</li>
+							<li>Connect capture, detection, and button presses into one loop, then test a complete
+								soft-reset hunt on the DS.</li>
+						</ol>
+
+						<h3>Code</h3>
+						<p>
+							Code and build instructions can be found in my
+							<a href="https://github.com/daviecheng/autoshinyhunthgss" target="_blank" rel="noopener noreferrer">GitHub repository</a>.
+						</p>
+						<footer>
+							<ul class="actions">
+								<li><a href="index.html" class="button alt">Back to My Projects</a></li>
+							</ul>
+						</footer>
+					</article>
+				</div>
+			</section>
+
+			<!-- Footer -->
+			<section id="footer">
+				<div class="container"></div>
+			</section>
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+	</body>
+</html>
