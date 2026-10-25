@@ -36,53 +36,52 @@
 
 						<!-- Content -->
 							<article class="box post">
-								<h3>Autonomous Locking Knee Brace Overview</h3>
+								<h3>Overview</h3>
 								<p>
 									<br>
 									<b>
-										This is my NYIT senior design project where I collaborated
-										with 3 other team members to design an autonomous locking knee brace.
-										The objective of the locking knee brace is to prevent leg injuries
-										in elderlies by locking the leg before falling. Due to stability concerns
-										when ubruptly locking the leg, a preset flexion is locked.
-										In that way, it prevents overbending and the user can self-adjust their leg 
-										to a stable position when using their mobility aid. 
-										
-										The implementation uses the Random Forest machine learning algorithm with two push-pull solenoids to
-										establish the locking mechanism for the knee brace. The preset flexion
-										is unlocked after 5 seconds of consecutive non-fall readings. The autonomous locking knee brace
-										is dependent on the user's mobility aid to help regain their center of gravity.
-
-										The project is 
-										preliminary and ongoing for future students.
+										I worked with three teammates on this knee brace for my NYIT senior design project.
+										We explored whether detecting a fall and limiting knee bending could help reduce
+										leg injuries in older adults.
+										<br><br>
+										We chose a preset bend limit because suddenly locking the leg raised stability
+										concerns. The goal was to limit overbending while leaving room for the user to
+										adjust their leg and regain balance with a mobility aid.
+										<br><br>
+										The prototype uses a Random Forest model to detect falls and two push-pull
+										solenoids to engage the lock. It releases after five consecutive seconds of
+										non-fall readings. The design relies on a mobility aid to help the user regain balance.
+										<br><br>
+										This is an early prototype for future students to build on. A useful next question
+										is how the detection and locking behavior hold up across different users and movements.
 									</b>
 								</p>
 
-								<h3>Autonomous Locking Knee Brace Pictures</h3>
+								<h3>Pictures</h3>
 								<br>
 								<div class="row">
 									<div class="col-4 col-6-medium col-12-small">
 										<section class="box" style="text-align:center;">
 											<a class="image featured"><img src="/projects/auto-brace/profile.jpg" alt="" /></a>
-											<p>Locking Brace Side View</p>
+											<p>Brace viewed from the side</p>
 										</section>
 									</div>
 									<div class="col-4 col-6-medium col-12-small">
 										<section class="box" style="text-align:center;">
 											<a class="image featured"><img src="/projects/auto-brace/chest.jpg" alt="" /></a>
-											<p>Chest Sensor Placement</p>
+											<p>Sensor on the chest</p>
 										</section>
 									</div>
 									<div class="col-4 col-6-medium col-12-small">
 										<section class="box" style="text-align:center;">
 											<a class="image featured"><img src="/projects/auto-brace/hip.jpg" alt="" /></a>
-											<p>Hip Sensor Placement</p>
+											<p>Sensor on the hip</p>
 										</section>
 									</div>
 								</div>	
 								<br>
 
-								<h3>Autonomous Locking Knee Brace Video Demonstration</h3>
+								<h3>Demo</h3>
 								<br>
 								<div class="row" style="justify-content: center;">
 									<div class="col-4 col-6-medium col-12-small">
@@ -94,7 +93,7 @@
 												</video>
 											</a>
 											<br>
-											Chest and Hip Sensor Graphs when Falling
+											Chest and hip sensor readings during a fall
 										</section>
 									</div>
 									<div class="col-4 col-6-medium col-12-small">
@@ -105,9 +104,9 @@
 													Your browser does not support the video tag.
 												</video>	
 											</a>
-											Side View of Locking<br>
-											Red Line = Locked Flexion (preset) <br>
-											Green Line = Full Flexion (unlocked)
+											Locking mechanism viewed from the side<br>
+											Red line: preset bend limit when locked <br>
+											Green line: full bending range when unlocked
 										</section>
 									</div>
 								</div>
@@ -117,22 +116,20 @@
 										<source src="/projects/auto-brace/Solenoid Locking Demonstration.mp4" type="video/mp4">
 										Your browser does not support the video tag.
 									</video>
-									Solenoid Locking 
+									Solenoids engaging the lock
 								</section>
 
 								<br>
-								<h3>Fall Detection Accuracy and Confusion Matrix</h3>
+								<h3>Fall Detection Results</h3>
 								<br>
 								<p>
 									<b>
-										The fall detection accuracy for my movements is 94.5% for a 300 ms sampling interval.
-										The 300 ms sampling interval gave the best fall detection accuracy for my movements.
-										
-										The model uses 1000 training data for each label (falling and nonfalling) and 30 decision trees for each label.
-										Each decision tree has a depth of 10.
-										
+										In tests using my own movements, the fall detector reached 94.5% accuracy with
+										a 300 ms sampling interval. That interval gave the best result among those I tested.
 										<br><br>
-										Below are two experimental results along with their confusion matrix.
+										The model used 1,000 training samples for each label: falling and non-falling.
+										The configuration used 30 decision trees per label, each with a depth of 10.
+										The two experiments and their confusion matrices are shown below.
 									</b>
 								</p>
 
@@ -143,12 +140,12 @@
 				
 
 								<br>
-								<h3>Setup</h3>
+								<h3>Code and Setup</h3>
 								<br>
 								<p>
 									<b>
-										Setup and code can be found at my GitHub repository page
-										<a href="https://github.com/daviecheng/Autonomous_Locking_Knee_Brace/" target="_blank" rel="noopener noreferrer">here</a>
+										The code and setup instructions are in my
+										<a href="https://github.com/daviecheng/Autonomous_Locking_Knee_Brace/" target="_blank" rel="noopener noreferrer">GitHub repository</a>.
 									</b>
 
 								</p>

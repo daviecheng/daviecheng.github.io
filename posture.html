@@ -40,18 +40,17 @@
 							<p>
 								<br>
 								<b>
-									The posture corrector is a low-power device designed to detect slouching.
-									It alerts the user with a buzzer if slouching is detected for at least 7
-									seconds. This interval was selected to reduce the possibility of false
-									positives where the user may occasionally slouch when doing daily activities.
+									I built this wearable device to give a reminder when I slouch. It sounds a buzzer
+									if slouching lasts at least seven seconds. I chose that delay so brief movements
+									wouldn't trigger an alert.
 									<br><br>
-									
-									The device implements a Scalable, Efficient, and Fast classifieR (SEFR) machine learning algorithm, a
-									binary classifier that is known for its quick training and prediction, with a minimal memory footprint.
-									It also features a power switch and charging module for easy recharging and on/off control.
-									The battery lasts up to approximately 4.5 days under optimal conditions, achieved by lowering
-									the Arduino Pro Mini's clock frequency and removing unused internal LEDs from
-									the components used.
+									I used the existing SEFR algorithm with the micromlgen library, following
+									<a href="https://eloquentarduino.github.io/2020/07/sefr-a-fast-linear-time-classifier-for-ultra-low-power-devices/" target="_blank" rel="noopener noreferrer">Eloquent Arduino's guide</a>.
+									I trained the classifier on 600 samples: 300 slouching and 300 non-slouching.
+									<br><br>
+									I lowered the Arduino Pro Mini's clock speed and removed unused LEDs to reduce power
+									use. The battery lasts up to about 4.5 days under ideal conditions. A power switch
+									and charging module make it easy to turn off and recharge.
 								</b>
 							</p>
 
@@ -62,49 +61,49 @@
 								<div class="col-6 col-6-medium col-12-small">
 									<section class="box" style="text-align:center;">
 										<a class="image featured"><img src="/projects/posture-device/device-top-view.jpg" alt="" /></a>
-										<p>Posture Device Top View</p>
+										<p>Device viewed from above</p>
 									</section>
 								</div>
 								<div class="col-6 col-6-medium col-12-small">
 									<section class="box" style="text-align:center;">
 										<a class="image featured"><img src="/projects/posture-device/device-bottom-view.jpg" alt="" /></a>
-										<p>Posture Device Bottom View</p>
+										<p>Device viewed from below</p>
 									</section>
 								</div>
 								<div class="col-6 col-6-medium col-12-small">
 									<section class="box" style="text-align:center;">
 										<a class="image featured"><img src="/projects/posture-device/assembled-top-view.jpg" alt="" /></a>
-										<p>Assembled Posture Device Top View</p>
+										<p>Assembled device viewed from above</p>
 									</section>
 								</div>
 								<div class="col-6 col-6-medium col-12-small">
 									<section class="box" style="text-align:center;">
 										<a class="image featured"><img src="/projects/posture-device/assembled-bottom-view.jpg" alt="" /></a>
-										<p>Assembled Posture Device Bottom View</p>
+										<p>Assembled device viewed from below</p>
 									</section>
 								</div>
 								<div class="col-6 col-6-medium col-12-small">
 									<section class="box" style="text-align:center;">
 										<a class="image featured"><img src="/projects/posture-device/assembled-side-view.jpg" alt="" /></a>
-										<p>Assembled Posture Device Side View</p>
+										<p>Assembled device viewed from the side</p>
 									</section>
 								</div>
 								<div class="col-6 col-6-medium col-12-small">
 									<section class="box" style="text-align:center;">
 										<a class="image featured"><img src="/projects/posture-device/device-box.jpg" alt="" /></a>
-										<p>3D Printed Device Enclosure</p>
+										<p>3D printed enclosure</p>
 									</section>
 								</div>
 								<div class="col-6 col-6-medium col-12-small">
 									<section class="box" style="text-align:center;">
 										<a class="image featured"><img src="/projects/posture-device/on-led.jpg" alt="" /></a>
-										<p>Power Button and ON-LED</p>
+										<p>Power switch and indicator light</p>
 									</section>
 								</div>
 								<div class="col-6 col-6-medium col-12-small">
 									<section class="box" style="text-align:center;">
 										<a class="image featured"><img src="/projects/posture-device/charging-led.jpg" alt="" /></a>
-										<p>Charging LED</p>
+										<p>Charging indicator light</p>
 									</section>
 								</div>
 
@@ -122,13 +121,13 @@
 												Your browser does not support the video tag.
 											</video>
 										</a>
-										Note: You may need to turn up volume to hear alarm.
+										Turn up the volume to hear the buzzer.
 									</section>
 								</div>
 								<div class="col-4 col-12-medium col-12-small">
 									<section class="box" style="text-align:center;">
 										<a class="image featured"><img src="/projects/posture-device/wearing-device.jpg" alt="" /></a>
-										<p>Wearing Posture Corrector Device</p>
+										<p>Wearing the device</p>
 									</section>
 								</div>
 							</div>
@@ -152,12 +151,12 @@
 							</div>
 
 							<br>
-							<h3>Setup</h3>
+							<h3>Code and Setup</h3>
 							<br>
 							<p>
 								<b>
-									Setup and code can be found at my GitHub repository page
-									<a href="https://github.com/daviecheng/posture_corrector" target="_blank" rel="noopener noreferrer">here</a>
+									The code and setup instructions are in my
+									<a href="https://github.com/daviecheng/posture_corrector" target="_blank" rel="noopener noreferrer">GitHub repository</a>.
 								</b>
 
 							</p>

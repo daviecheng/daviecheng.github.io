@@ -36,24 +36,22 @@
 
 						<!-- Content -->
 						<article class="box post">
-							<h3>Pokemon BDSP Automatic Egg Hatcher Overview</h3>
+							<h3>Overview</h3>
 							<p>
 								<br>
 								<b>
-                                    This project automates the egg hatching process in the Pokemon BDSP game by
-                                    automating button presses on the Nintendo Switch Joycon. The implementation
-                                    utilizes SPDT switches and the Raspberry Pi Pico's GPIO. The SPDT switch 
-                                    bridge points on the joycon to emulate a button switch; while the GPIO controls
-                                    which buttons to turn on and off.
+                                    I built a circuit to automate egg hatching in Pokemon Brilliant Diamond and Shining Pearl (BDSP).
+                                    A Raspberry Pi Pico controls SPDT switches that connect button test points on a Nintendo Switch Joy-Con.
+                                    Those connections let the program simulate button presses.
 								</b>
 							</p>
 
-							<h3>Video</h3>
+							<h3>Demo</h3>
 							
 							<p>
 								<br>
 								<b>
-									Below is a demonstration of the automated button press circuit.
+									This demo shows the circuit pressing buttons automatically.
 								</b>
 							</p>
 							<div class="row" style="justify-content: center;">
@@ -74,11 +72,9 @@
 							<p>
 								<br>
 								<b>
-                                    This project emulates presses that go up and down the map while continuously
-                                    pressing the ZL button to handle the egg hatching animation.
-									The intended workflow for this project is to have your party full of eggs,
-									then run the program to have your eggs automatically hatch while
-									you do something else.
+                                    The program moves the player up and down the map and repeatedly presses ZL to advance
+                                    through the hatching animation. I load the party with eggs, then let the circuit
+                                    handle the repeated inputs.
 								</b>
 							</p>
 
@@ -87,46 +83,44 @@
 								<ol>
 									<b>
 									<li>
-										<h4>Joycon Pairing</h4>
+										<h4>Pairing the Joy-Con</h4>
 										<p>
-											It is important to first pair the Joycon to the Nintendo Switch as the power for the Joycon will be from USB. 
-											Solder jumper wires to the 5V and GND pins on the Joycon connector to make it breadboard friendly. When USB 
-											power is connected to the circuit, pressing the upper pushbutton will pair the Joycon to the Nintendo Switch. You will need to
-											do this everytime you power the circuit on. Leaving a separate left Joycon connected to the
-											Nintendo Switch will allow you to freely move your in-game player when the automated circuit is turned off. 
-											<br>
-											<h5>Note: You will be unable to use the connected left joycon if the automated circuit is turned on.</h5>
+											I soldered wires to the Joy-Con connector's 5V and GND pins so I could power it
+											through the breadboard. Each time I turn on USB power, I press the upper pushbutton
+											to pair the Joy-Con with the Switch.
+											<br><br>
+											A separate left Joy-Con lets me control the player when the circuit is off.
+											That controller can't be used while the automated circuit is on.
 										</p>
 									</li>
 									<li>
-										<h4>Joycon Test Points</h4>
+										<h4>Connecting to the Joy-Con</h4>
 										<div class="row">
 											<div class="col-6 col-6-medium col-12-small">
 												<section class="box" style="text-align:center;">
 													<a class="image featured"><img src="/projects/egg-hatcher/pcb-front.jpg" alt="" /></a>
-													<p>Left Joycon PCB (Front)</p>
+													<p>Left Joy-Con circuit board, front</p>
 												</section>
 											</div>
 											<div class="col-6 col-6-medium col-12-small">
 												<section class="box" style="text-align:center;">
 													<a class="image featured"><img src="/projects/egg-hatcher/pcb-back.jpg" alt="" /></a>
-													<p>Left Joycon PCB (Back)</p>
+													<p>Left Joy-Con circuit board, back</p>
 												</section>
 											</div>
 										</div>
 										<br>
 										<p>
-											Using the left Joycon pinout from <a href="https://github.com/dekuNukem/joyAnalog/blob/master/datasheets/header_mapping.pdf" target="_blank" rel="noopener noreferrer">dekuNukem's repository</a>,
-											I found that emulating a button press requires the COL to be bridged with other test points. In this application, I bridged
-											COL with UP/DOWN/ZL to emulate the up, down, and ZL button press. I soldered jumper wires to these test points making
-											it easy to use with the breadboard. 
+											I used the left Joy-Con pinout from <a href="https://github.com/dekuNukem/joyAnalog/blob/master/datasheets/header_mapping.pdf" target="_blank" rel="noopener noreferrer">dekuNukem's repository</a>
+											to find the button connections. Connecting COL to UP, DOWN, or ZL simulates that
+											button press. I soldered wires to these test points to connect them to the breadboard.
 											<br><br>
-											Later on the project, I found that the Joycon's joystick was providing unwanted movement to my in-game player. 
-											The joystick corresponds to the POTX and POTY test points. To register the position of the joystick as center,
-											I applied roughly 0.8V to the POTX and POTY test points.
+											During testing, the joystick caused unwanted player movement. I traced its inputs
+											to POTX and POTY and applied about 0.8V to each so the controller would read the
+											joystick as centered.
 											<br><br>
-											In the above images, the color of the jumper wires correspond to the following test points. Red is 5V, gray is GND,
-											blue is UP, yellow is DOWN, white is ZL, orange is COL, and the two brown correspond to POTX and POTY.
+											The wire colors are red for 5V, gray for GND, blue for UP, yellow for DOWN,
+											white for ZL, orange for COL, and brown for POTX and POTY.
 										</p>
 									</li>
 
@@ -143,19 +137,17 @@
 											<div class="col-6 col-6-medium col-12-small">
 												<section class="box" style="text-align:center;">
 													<a class="image featured"><img src="/projects/egg-hatcher/connected-circuit.jpg" alt="" /></a>
-													<p>Left Joycon connected to Circuit</p>
+													<p>Left Joy-Con connected to the circuit</p>
 												</section>
 											</div>
 										</div>
 										<br>
 										<p>
-											The circuit uses the GPIO of the Raspberry Pi Pico to control the output of SPDT switches. The SPDT switches
-										    bridge the COL with the UP/DOWN/ZL test points to emulate a button press. The GPIO controls which buttons to
-											press by switching between the 2 outputs of the SPDT switch. I used two SPDT switches in this project: one
-											to control COL; and the other for pressing UP/DOWN/ZL. 
+											The Pico's GPIO pins control two SPDT switches: one for COL and one for
+											UP, DOWN, and ZL. Switching these connections simulates the button presses.
 											<br><br>
-											I used a voltage divider to provide the POTX and POTY with 0.8V. Additionally, a pushbutton is added to allow the program
-											to run and stop. 
+											A voltage divider supplies about 0.8V to the joystick inputs. A separate
+											pushbutton starts and stops the program.
 										</p>									
 									</li>
 									</b>
@@ -165,7 +157,7 @@
 							<div class="col-6 col-6-medium col-12-small">
 								<section class="box" style="text-align:center;">
 									<a class="image featured"><img src="projects/egg-hatcher/egg-schematic.JPG" alt="" /></a>
-									<p>Circuit Schematic</p>
+									<p>Wiring diagram</p>
 								</section>
 							</div>
 
@@ -174,12 +166,12 @@
 
 
 							<br>
-							<h3>Setup</h3>
+							<h3>Code</h3>
 							<br>
 							<p>
 								<b>
-									Code can be found at my GitHub repository page
-									<a href="https://github.com/daviecheng/pkmn-egg-hatcher" target="_blank" rel="noopener noreferrer">here</a>
+									The code is in my
+									<a href="https://github.com/daviecheng/pkmn-egg-hatcher" target="_blank" rel="noopener noreferrer">GitHub repository</a>.
 								</b>
 							</p>
 						</article>

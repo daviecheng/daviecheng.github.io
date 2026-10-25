@@ -36,71 +36,69 @@
 
 						<!-- Content -->
 							<article class="box post">
-								<h3>Automated Blinds Overview</h3>
+								<h3>Overview</h3>
 								<p>
 									<br>
 									<b>
-										After watching Kevin Darrah's clear sky indicator project on YouTube, I was inspired to make this 
-										automated blinds project. Using his code and the connection to openweathermap.org as he did 
-										in his project, I established three blind positions for different weather and time conditions.
-										The designed device hourly checks the weather and time of day, then the blinds are adjusted to 
-										one of three positions according to the conditions I set. The project utlizes the EEPROM to keep
-									    track of the previous blind position after waking up from deep sleep.
+										I built this project to explore how weather data could control my blinds.
+										It checks the weather and time once an hour, then moves the blinds to one of
+										three positions. I used OpenWeatherMap for the weather data and EEPROM to
+										remember the previous position after waking from deep sleep.
 										<br><br>
-										Kevin Darrah's clear sky project in this video 
-										<a href="https://www.youtube.com/watch?v=cD4gDeQ5jBI/" target="_blank" rel="noopener noreferrer">here</a>
+										The project builds on Kevin Darrah's code for his
+										<a href="https://www.youtube.com/watch?v=cD4gDeQ5jBI/" target="_blank" rel="noopener noreferrer">clear sky indicator</a>.
 									</b>
 								</p>
 
-								<h3>Automated Blinds Pictures</h3>
+								<h3>Pictures</h3>
 								<br>
 
 								<div class="row">
 									<div class="col-4 col-6-medium col-12-small">
 										<section class="box" style="text-align:center;">
 											<a class="image featured"><img src="/projects/auto-blinds/place-1.jpg" height="30%"alt="" /></a>
-											<p>Automated Blinds Front View</p>
+											<p>Blinds viewed from the front</p>
 										</section>
 									</div>
 									<div class="col-4 col-6-medium col-12-small">
 										<section class="box" style="text-align:center;">
 											<a class="image featured"><img src="/projects/auto-blinds/place-2.jpg" alt="" /></a>
-											<p>Device Top View</p>
+											<p>Device viewed from above</p>
 										</section>
 									</div>
 									<div class="col-4 col-6-medium col-12-small">
 										<section class="box" style="text-align:center;">
 											<a class="image featured"><img src="/projects/auto-blinds/mount-1.jpg" alt="" /></a>
-											<p>3D Parts Attached to Servo Motor </p>
+											<p>3D printed parts attached to the servo</p>
 										</section>
 									</div>
 									<div class="col-4 col-6-medium col-12-small">
 										<section class="box" style="text-align:center;">
 											<a class="image featured"><img src="/projects/auto-blinds/interface-rod.jpg" alt="" /></a>
-											<p>D-shaped Tilt Rod Interface</p>
+											<p>Connector for the D-shaped tilt rod</p>
 										</section>
 									</div>
 									<div class="col-4 col-6-medium col-12-small">
 										<section class="box" style="text-align:center;">
 											<a class="image featured"><img src="/projects/auto-blinds/mount-2.jpg" alt="" /></a>
-											<p>Servo Attached with Tilt Rod</p>
+											<p>Servo connected to the tilt rod</p>
 										</section>
 									</div>
 									<div class="col-4 col-6-medium col-12-small">
 										<section class="box" style="text-align:center;">
 											<a class="image featured"><img src="/projects/auto-blinds/mount-3.jpg" alt="" /></a>
-											<p>Servo Mount with Blind Front View</p>
+											<p>Servo mount on the blinds</p>
 										</section>
 									</div>
 
 								</div>	
 								<br>
 
-								<h3>Automated Blinds Video</h3>
+								<h3>Demo</h3>
 								<br>
 								<p>
 									<b>
-										Below is a demo of the automated blinds and its three blind positions.
+										This demo shows the blinds moving between the three positions.
 									</b>
 								</p>
 								<video width=100% height=100% controls>
@@ -113,19 +111,19 @@
 								<br>
 								<p>
 									<b>
-										The different weather conditions from openweathermap is
-										<a href="https://openweathermap.org/weather-conditions" target="_blank" rel="noopener noreferrer">here</a>
+										I use these
+										<a href="https://openweathermap.org/weather-conditions" target="_blank" rel="noopener noreferrer">OpenWeatherMap weather conditions</a>.
 										<br><br>
-										The conditions for my three blind positions are:
+										The rules are simple:
 										<ul>
 											<li>
-												<u>Fully Open:</u> Day time and weather condition is "clear sky", "few clouds", or "scattered clouds"
+												<u>Fully Open:</u> Daytime with clear skies, few clouds, or scattered clouds.
 											</li>
 											<li>
-												<u>Open Halfway:</u> Day time and any other weather conditions
+												<u>Open Halfway:</u> Daytime with any other weather.
 											</li>
 											<li>
-												<u>Closed:</u> Night time
+												<u>Closed:</u> At night.
 											</li>
 										</ul>
 									</b>
@@ -134,16 +132,16 @@
 								<div class="col-4 col-6-medium col-12-small">
 									<section class="box" style="text-align:center;">
 										<a class="image featured"><img src="/projects/auto-blinds/schematic.JPG" alt="" width="100%" /></a>
-										<p>Automated Blinds Wiring Schematic</p>
+										<p>Wiring diagram</p>
 									</section>
 								</div>
 								
-								<h3>Setup</h3>
+								<h3>Code and Setup</h3>
 								<br>
 								<p>
 									<b>
-										Setup and code can be found at my GitHub repository page
-										<a href="https://github.com/daviecheng/Automated_Blinds" target="_blank" rel="noopener noreferrer">here</a>
+										The code and setup instructions are in my
+										<a href="https://github.com/daviecheng/Automated_Blinds" target="_blank" rel="noopener noreferrer">GitHub repository</a>.
 									</b>
 
 								</p>
